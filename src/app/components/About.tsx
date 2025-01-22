@@ -30,10 +30,10 @@ const About = () => {
           className="max-w-3xl mx-auto text-gray-300 mb-12"
         >
         <p className="mb-4">
-  I'm a skilled Generative AI developer with experience in OpenAI, GPTs, Chatbots, AI Agents, and LLMs fine-tuning
+  I am a skilled Generative AI developer with experience in OpenAI, GPTs, Chatbots, AI Agents, and LLMs fine-tuning
   and AI integrations. I also have expertise in TypeScript and Python, along with proficiency in frameworks like
-  React, FastAPI, and Next.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable,
-  and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
+  React, FastAPI, and Next.js. I am a quick learner and collaborate closely with clients to create efficient, scalable,
+  and user-friendly solutions that solve real-world problems. Lets work together to bring your ideas to life!
 </p>
 
         </motion.div>
