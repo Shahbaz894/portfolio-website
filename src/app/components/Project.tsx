@@ -1,98 +1,92 @@
-"use client"
-import { motion, useMotionValue, useTransform } from "framer-motion"
-import { useState } from "react"
+"use client";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useState } from "react";
 
-const projects = [
-  {
-    title: "AI-Powered Content Generator",
-    description:
-      "Developed a state-of-the-art content generation system using GPT-3 and custom fine-tuning techniques.",
-    technologies: ["Python", "OpenAI API", "Flask"],
-    github: "https://github.com/yourusername/ai-content-generator",
-    demo: "https://ai-content-generator-demo.com",
-  },
-  {
-    title: "Intelligent Chatbot with RAG",
-    description:
-      "Created a chatbot that utilizes Retrieval-Augmented Generation for accurate and context-aware responses.",
-    technologies: ["Python", "LangChain", "Elasticsearch"],
-    github: "https://github.com/yourusername/intelligent-chatbot",
-    demo: "https://intelligent-chatbot-demo.com",
-  },
-  {
-    title: "AI Image Generation Platform",
-    description: "Built a web application that generates unique images based on text prompts using DALL-E 2.",
-    technologies: ["React", "Node.js", "OpenAI API"],
-    github: "https://github.com/yourusername/ai-image-generator",
-    demo: "https://ai-image-generator-demo.com",
-  },
-  {
-    title: "Sentiment Analysis Dashboard",
-    description:
-      "Developed a real-time sentiment analysis tool for social media posts using natural language processing.",
-    technologies: ["Python", "TensorFlow", "React", "D3.js"],
-    github: "https://github.com/yourusername/sentiment-analysis-dashboard",
-    demo: "https://sentiment-analysis-dashboard-demo.com",
-  },
-  {
-    title: "Automated Code Review Assistant",
-    description: "Created an AI-powered tool that provides automated code reviews and suggestions for improvement.",
-    technologies: ["Python", "Machine Learning", "GitHub API"],
-    github: "https://github.com/yourusername/code-review-assistant",
-    demo: "https://code-review-assistant-demo.com",
-  },
-  {
-    title: "Virtual Reality Data Visualization",
-    description: "Designed and implemented a VR application for immersive data visualization and analysis.",
-    technologies: ["Unity", "C#", "VR SDK", "D3.js"],
-    github: "https://github.com/yourusername/vr-data-viz",
-    demo: "https://vr-data-viz-demo.com",
-  },
-  {
-    title: "AI-Driven Financial Forecasting",
-    description: "Developed a machine learning model for predicting stock prices and market trends.",
-    technologies: ["Python", "TensorFlow", "Pandas", "Plotly"],
-    github: "https://github.com/yourusername/ai-financial-forecasting",
-    demo: "https://ai-financial-forecasting-demo.com",
-  },
-  {
-    title: "Blockchain-based Supply Chain Tracker",
-    description:
-      "Built a decentralized application for tracking and verifying supply chain processes using blockchain technology.",
-    technologies: ["Solidity", "Ethereum", "React", "Web3.js"],
-    github: "https://github.com/yourusername/blockchain-supply-chain",
-    demo: "https://blockchain-supply-chain-demo.com",
-  },
-]
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  github: string;
+  demo: string;
+};
 
-const ProjectCard = ({ project, index }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-  const rotateX = useTransform(y, [-100, 100], [30, -30])
-  const rotateY = useTransform(x, [-100, 100], [-30, 30])
+const projects: Project[] = [
+  {
+    title: "YouTube Text Summarization",
+    description:
+      "Built an AI-driven application to summarize YouTube videos into concise text summaries.",
+    technologies: ["Python", "Streamlit", "OpenAI API"],
+    github: "https://github.com/yourusername/youtube-text-summarization",
+    demo: "https://youtube-text-summarization-demo.com",
+  },
+  {
+    title: "Financial Insights Agent Using PhiData",
+    description:
+      "Developed a financial agent to provide insights and forecasts based on real-time data.",
+    technologies: ["Python", "PhiData", "Streamlit"],
+    github: "https://github.com/yourusername/financial-insights-agent",
+    demo: "https://financial-insights-agent-demo.com",
+  },
+  {
+    title: "Multi-agent Customer Support Automation",
+    description:
+      "Designed a multi-agent system for automating customer support queries and reducing response times.",
+    technologies: ["Python", "Streamlit",],
+    github: "https://github.com/yourusername/customer-support-automation",
+    demo: "https://customer-support-automation-demo.com",
+  },
+  {
+    title: "Music Streaming Platform",
+    description:
+      "Developed a Next.js project for a music streaming platform with an elegant user interface.",
+    technologies: ["Next.js", "React", "Tailwind CSS"],
+    github: "https://github.com/yourusername/music-nextjs-project",
+    demo: "https://music-nextjs-project-demo.com",
+  },
+  {
+    title: "E-commerce App Using Bloc",
+    description:
+      "Built a high-performance e-commerce app using the Bloc architecture for state management.",
+    technologies: ["Dart", "Flutter", "Bloc"],
+    github: "https://github.com/yourusername/ecommerce-app-bloc",
+    demo: "https://ecommerce-app-bloc-demo.com",
+  },
+];
 
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-    const mouseX = event.clientX - centerX
-    const mouseY = event.clientY - centerY
-    x.set(mouseX)
-    y.set(mouseY)
-  }
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const mouseX = event.clientX - centerX;
+    const mouseY = event.clientY - centerY;
+    x.set(mouseX);
+    y.set(mouseY);
+  };
 
   const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-    setIsHovered(false)
-  }
+    x.set(0);
+    y.set(0);
+    setIsHovered(false);
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.1 * index }} // Increased duration for slower animation
+      transition={{ duration: 0.7, delay: 0.1 * index }}
       style={{ perspective: 2000 }}
     >
       <motion.div
@@ -112,8 +106,11 @@ const ProjectCard = ({ project, index }) => {
           <div className="mb-4">
             <h4 className="font-semibold mb-2 text-white">Technologies:</h4>
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span key={tech} className="bg-blue-500 text-white text-sm px-2 py-1 rounded">
+              {project.technologies.map((tech: string) => (
+                <span
+                  key={tech}
+                  className="bg-blue-500 text-white text-sm px-2 py-1 rounded"
+                >
                   {tech}
                 </span>
               ))}
@@ -146,8 +143,8 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </motion.div>
     </motion.div>
-  )
-}
+  );
+};
 
 const Projects = () => {
   return (
@@ -156,7 +153,7 @@ const Projects = () => {
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }} // Slower entrance animation for the title
+          transition={{ duration: 0.7 }}
           className="text-3xl font-bold mb-12 text-center text-white"
         >
           Projects
@@ -168,7 +165,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
