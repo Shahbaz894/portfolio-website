@@ -10,7 +10,7 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6">
             <a
-              href="https://github.com/Shahbaz894/agenticAi"
+              href="https://github.com/Shahbaz894"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-300"

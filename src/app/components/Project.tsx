@@ -7,7 +7,6 @@ type Project = {
   description: string;
   technologies: string[];
   github: string;
-  demo: string;
 };
 
 const projects: Project[] = [
@@ -16,40 +15,35 @@ const projects: Project[] = [
     description:
       "Built an AI-driven application to summarize YouTube videos into concise text summaries.",
     technologies: ["Python", "Streamlit", "OpenAI API"],
-    github: "https://github.com/yourusername/youtube-text-summarization",
-    demo: "https://youtube-text-summarization-demo.com",
+    github: "https://github.com/Shahbaz894/youtube-text-summarization",
   },
   {
     title: "Financial Insights Agent Using PhiData",
     description:
       "Developed a financial agent to provide insights and forecasts based on real-time data.",
     technologies: ["Python", "PhiData", "Streamlit"],
-    github: "https://github.com/yourusername/financial-insights-agent",
-    demo: "https://financial-insights-agent-demo.com",
+    github: "https://github.com/Shahbaz894/agenticAi",
   },
   {
     title: "Multi-agent Customer Support Automation",
     description:
       "Designed a multi-agent system for automating customer support queries and reducing response times.",
-    technologies: ["Python", "Streamlit",],
-    github: "https://github.com/yourusername/customer-support-automation",
-    demo: "https://customer-support-automation-demo.com",
+    technologies: ["Python", "Streamlit"],
+    github: "https://github.com/Shahbaz894/crewAi_agent/blob/main/customer_support_automation_agent.py",
   },
   {
     title: "Music Streaming Platform",
     description:
       "Developed a Next.js project for a music streaming platform with an elegant user interface.",
     technologies: ["Next.js", "React", "Tailwind CSS"],
-    github: "https://github.com/yourusername/music-nextjs-project",
-    demo: "https://music-nextjs-project-demo.com",
+    github: "https://github.com/Shahbaz894/music-nextjs-project",
   },
   {
     title: "E-commerce App Using Bloc",
     description:
       "Built a high-performance e-commerce app using the Bloc architecture for state management.",
     technologies: ["Dart", "Flutter", "Bloc"],
-    github: "https://github.com/yourusername/ecommerce-app-bloc",
-    demo: "https://ecommerce-app-bloc-demo.com",
+    github: "https://github.com/Shahbaz894/ecomerce_app_bloc",
   },
 ];
 
@@ -130,14 +124,6 @@ const ProjectCard = ({
               className="text-blue-400 hover:text-blue-300 transition-colors"
             >
               GitHub
-            </a>
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              Live Demo
             </a>
           </motion.div>
         </div>
