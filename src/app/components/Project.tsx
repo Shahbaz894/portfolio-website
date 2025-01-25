@@ -95,15 +95,19 @@ const ProjectCard = ({
         onMouseLeave={handleMouseLeave}
       >
         <div className="p-6" style={{ transform: "translateZ(50px)" }}>
-          <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-          <p className="text-gray-300 mb-4">{project.description}</p>
+          <h3 className="text-lg md:text-xl font-bold mb-2 text-white">
+            {project.title}
+          </h3>
+          <p className="text-sm md:text-base text-gray-300 mb-4">
+            {project.description}
+          </p>
           <div className="mb-4">
             <h4 className="font-semibold mb-2 text-white">Technologies:</h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech: string) => (
                 <span
                   key={tech}
-                  className="bg-blue-500 text-white text-sm px-2 py-1 rounded"
+                  className="bg-blue-500 text-white text-xs md:text-sm px-2 py-1 rounded"
                 >
                   {tech}
                 </span>
@@ -140,11 +144,11 @@ const Projects = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-3xl font-bold mb-12 text-center text-white"
+          className="text-2xl md:text-3xl font-bold mb-12 text-center text-white"
         >
           Projects
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
