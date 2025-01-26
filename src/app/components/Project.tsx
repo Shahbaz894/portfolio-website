@@ -84,7 +84,7 @@ const ProjectCard = ({
       style={{ perspective: 2000 }}
     >
       <motion.div
-        className="bg-[#1E293B] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+        className="bg-[#1E293B] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-[#1E40AF] hover:border-[#3B82F6]"
         style={{
           rotateX,
           rotateY,
