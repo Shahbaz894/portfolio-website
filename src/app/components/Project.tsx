@@ -45,6 +45,20 @@ const projects: Project[] = [
     technologies: ["Dart", "Flutter", "Bloc"],
     github: "https://github.com/Shahbaz894/ecomerce_app_bloc",
   },
+  {
+    title: "Crafting Effective Marketing Strategies with AI",
+    description:
+      "Leverage the power of CrewAI to automatically generate targeted marketing strategies for enterprise-level products. This AI-driven tool crafts detailed plans to enhance brand awareness, audience engagement, and market positioning.",
+    technologies: ["Python", "CrewAi"],
+    github: "https://github.com/Shahbaz894/stock-Analysis-crewAgent",
+  },
+  {
+    title: "YouTube Commit Analyzer Chrome Plugin",
+    description:
+      " A Chrome plugin that analyzes Git commits for YouTube projects, providing detailed insights and summaries. It helps developers quickly track code changes and contributions.",
+    technologies: ["Python", "ML"],
+    github: "https://github.com/Shahbaz894/yt-chrome-plugin/tree/main/chrome-plugin",
+  },
 ];
 
 const ProjectCard = ({

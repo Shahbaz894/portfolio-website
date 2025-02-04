@@ -107,99 +107,83 @@ const Contact = () => {
       {/* 3D Background */}
       <canvas id="background-canvas" className="absolute inset-0 z-0"></canvas>
 
-      <div className="relative z-10 container mx-auto px-4 flex items-center justify-between">
-        {/* Contact Form */}
-        <div className="w-full max-w-3xl">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl font-bold mb-12 text-center text-white"
-          >
-            Contact Me
-          </motion.h2>
-
-          <div className="max-w-3xl mx-auto border-4 border-blue-500 rounded-lg p-8 bg-[#0F172A] shadow-lg">
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block mb-2 font-semibold text-white"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-lg bg-[#1E293B] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 font-semibold text-white"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-lg bg-[#1E293B] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block mb-2 font-semibold text-white"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="w-full px-4 py-2 rounded-lg bg-[#1E293B] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#1E293B]"
-              >
-                Send Message
-              </button>
-            </motion.form>
-          </div>
-        </div>
-
-        {/* Animated Globe Image */}
-        <motion.div
-          className="relative w-full max-w-md ml-8"
-          animate={{ x: [0, 20, 5] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      <div className="relative z-10 container mx-auto px-4">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl font-bold mb-12 text-center text-white"
         >
-          <img
-            src="/globe.jpg"
-            alt="Globe"
-            className="w-full h-full object-cover rounded-lg shadow-lg"
-          />
-        </motion.div>
+          Contact Me
+        </motion.h2>
+
+        <div className="max-w-3xl mx-auto border-4 border-blue-500 rounded-lg p-8 bg-[#0F172A] shadow-lg">
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+            <div>
+              <label
+                htmlFor="name"
+                className="block mb-2 font-semibold text-white"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 rounded-lg bg-[#1E293B] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 font-semibold text-white"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 rounded-lg bg-[#1E293B] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block mb-2 font-semibold text-white"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="w-full px-4 py-2 rounded-lg bg-[#1E293B] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#1E293B]"
+            >
+              Send Message
+            </button>
+          </motion.form>
+        </div>
       </div>
     </section>
   );
