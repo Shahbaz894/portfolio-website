@@ -25,15 +25,10 @@ export async function POST(req: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error in POST /contact:", error); // Logging the error once
-
-    let errorMessage = "An unexpected error occurred.";
-    if (error instanceof Error) {
-      errorMessage = error.message;
-    }
+    console.error("Error in POST /contact:", error); // ✅ Now it's always used
 
     return NextResponse.json(
-      { success: false, error: errorMessage },
+      { success: false, error: error instanceof Error ? error.message : "An unexpected error occurred." },
       { status: 500 }
     );
   }
