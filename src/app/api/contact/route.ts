@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export async function POST(req: NextRequest) {
-  try {
+  // try {
     const body = await req.json();
     
     if (!body.name || !body.email || !body.message) {
@@ -24,19 +24,19 @@ export async function POST(req: NextRequest) {
       { success: true, message: "Message sent!", data: newMessage },
       { status: 201 }
     );
-  } catch (caughtError) {
-    console.error("Error in POST /contact:", caughtError);
+  // } catch () {
+    // console.error("Error in POST /contact:", caughtError);
     
-    let errorMessage = "An unexpected error occurred.";
-    if (caughtError instanceof Error) {
-      errorMessage = caughtError.message;
-    } else if (typeof caughtError === 'string') {
-      errorMessage = caughtError;
-    }
+    // let errorMessage = "An unexpected error occurred.";
+    // if (caughtError instanceof Error) {
+    //   errorMessage = caughtError.message;
+    // } else if (typeof caughtError === 'string') {
+    //   errorMessage = caughtError;
+    // }
     
-    return NextResponse.json(
-      { success: false, error: errorMessage },
-      { status: 500 }
-    );
-  }
+    // return NextResponse.json(
+    //   { success: false, error: errorMessage },
+    //   { status: 500 }
+    // );
+  // }
 }
