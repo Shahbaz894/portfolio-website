@@ -17,7 +17,7 @@ const adapter = new PrismaNeon(pool);
 const globalForPrisma = global as unknown as { prisma?: PrismaClient };
 
 // Prevent multiple instances of Prisma in dev mode
-const prisma = globalForPrisma.prisma ?? new PrismaClient({ adapter } as any);
+const prisma = globalForPrisma.prisma ?? new PrismaClient({ adapter } );
 
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;

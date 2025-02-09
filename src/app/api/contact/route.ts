@@ -1,17 +1,44 @@
+
+
+
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/lib/prisma"; // Import prisma only in server-side code
+import prisma from "@/lib/prisma"; // Ensure this is a server-side import
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, message } = await req.json();
+    const body = await req.json(); // Parse request body safely
 
-    // Ensure Prisma is only used on the server
+    // Validate required fields
+    if (!body.name || !body.email || !body.message) {
+      return NextResponse.json(
+        { success: false, error: "All fields are required." },
+        { status: 400 }
+      );
+    }
+
+    // Save message in the database
     const newMessage = await prisma.message.create({
-      data: { name, email, message },
+      data: {
+        name: body.name,
+        email: body.email,
+        message: body.message,
+      },
     });
 
-    return NextResponse.json({ success: true, message: "Message sent!", data: newMessage });
+    return NextResponse.json(
+      { success: true, message: "Message sent!", data: newMessage },
+      { status: 201 }
+    );
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    // Ensure error is properly handled
+    let errorMessage = "An unexpected error occurred.";
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+
+    return NextResponse.json(
+      { success: false, error: errorMessage },
+      { status: 500 }
+    );
   }
 }
