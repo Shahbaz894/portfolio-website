@@ -1,6 +1,3 @@
-
-
-
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma"; // Ensure this is a server-side import
 
@@ -29,8 +26,9 @@ export async function POST(req: NextRequest) {
       { success: true, message: "Message sent!", data: newMessage },
       { status: 201 }
     );
-  } catch (error) {
-    // Ensure error is properly handled
+  } catch (error: unknown) {
+    console.error("Error in POST /contact:", error); // Log the error to fix ESLint warning
+
     let errorMessage = "An unexpected error occurred.";
     if (error instanceof Error) {
       errorMessage = error.message;
