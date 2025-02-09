@@ -24,11 +24,9 @@ export async function POST(req: NextRequest) {
       { success: true, message: "Message sent!", data: newMessage },
       { status: 201 }
     );
-  } catch (error) {
-    console.error("Error in POST /contact:", error); // ✅ Now it's always used
-
+  } catch {
     return NextResponse.json(
-      { success: false, error: error instanceof Error ? error.message : "An unexpected error occurred." },
+      { success: false, error: "An unexpected error occurred." },
       { status: 500 }
     );
   }
