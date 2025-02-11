@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { log } from "console";
 
 export async function POST(req: NextRequest) {
-  try {
+  
     const body = await req.json();
 
     if (!body.name || !body.email || !body.message) {
@@ -24,11 +25,5 @@ export async function POST(req: NextRequest) {
       { success: true, message: "Message sent!", data: newMessage },
       { status: 201 }
     );
-  } catch (error) {
-    console.error("Error processing request:", error); // Logs error for debugging
-    return NextResponse.json(
-      { success: false, error: "An unexpected error occurred." },
-      { status: 500 }
-    );
-  }
+ 
 }
