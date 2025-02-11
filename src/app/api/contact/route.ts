@@ -9,7 +9,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const { name, email, message } = body;
     if (!name || !email || !message) {
       return NextResponse.json(
-        { success: false, error: "All fields are required." },
+        { success: false, message: "All fields are required." },
         { status: 400 }
       );
     }
@@ -23,10 +23,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       { success: true, message: "Message sent successfully!", data: newMessage },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error saving message:", error);
+    
+    const errorMessage = error instanceof Error ? error.message : "Something went wrong. Please try again later.";
+    
     return NextResponse.json(
-      { success: false, error: "Something went wrong. Please try again later." },
+      { success: false, message: errorMessage },
       { status: 500 }
     );
   }
