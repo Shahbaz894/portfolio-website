@@ -23,11 +23,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       { success: true, message: "Message sent successfully!", data: newMessage },
       { status: 201 }
     );
-  } catch (error: unknown) {
+  } catch (error) {
     console.error("Error saving message:", error);
-    
+     
     const errorMessage = error instanceof Error ? error.message : "Something went wrong. Please try again later.";
-    
+    console.log(error)
     return NextResponse.json(
       { success: false, message: errorMessage },
       { status: 500 }
