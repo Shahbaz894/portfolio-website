@@ -4,7 +4,7 @@ import { Pool, neonConfig } from "@neondatabase/serverless";
 import ws from "ws";
 
 if (typeof window !== "undefined") {
-  throw new Error("PrismaClient should not be used in the browser.");
+  throw new Error("PrismaClient should not be used in the browser ok.");
 }
 
 // Configure Neon WebSockets
